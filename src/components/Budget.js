@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
+
 const Budget = () => {
     const [budget, setBudget] = useState('');
     const { expenses } = useContext(AppContext);
