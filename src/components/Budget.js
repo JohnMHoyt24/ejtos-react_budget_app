@@ -7,7 +7,7 @@ const Budget = () => {
     const submitEvent = () => {
 
         if(budget > 20000) {
-            alert("The value cannot exceed remaining funds  £20000.");
+            alert("The value cannot exceed remaining funds " + currency + "20000.");
             setBudget("");
             return;
         } else if(budget < expenses) {
