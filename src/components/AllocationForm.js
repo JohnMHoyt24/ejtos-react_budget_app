@@ -79,7 +79,6 @@ const AllocationForm = (props) => {
                         </div>
                         <input
                             required='required'
-                            type='number'
                             id='cost'
                             value={cost}
                             style={{ marginLeft: '2rem', size: 10 }}

@@ -43,11 +43,13 @@ const Currency = () => {
       >
         Currency {'('}{currencyLabel()}{')'}
       </button>
-      <ul className={`custom-menu dropdown-menu ${isOpen ? 'show' : ''} `}>
+      <ul className={`custom-menu dropdown-menu ${isOpen ? 'show' : ''} `}
+        style={{ backgroundColor: '#93e399', color: '#fff' }}>
         <li>
           <button
             className="dropdown-item"
             type="button"
+            style={{ backgroundColor: '#93e399', color: '#000000' }}
             onClick={() => setCurrencyHandler('$')}
           >
            $ Dollar
@@ -57,6 +59,7 @@ const Currency = () => {
           <button
             className="dropdown-item"
             type="button"
+            style={{ backgroundColor: '#93e399', color: '#000000' }}
             onClick={() => setCurrencyHandler('£')}
           >
            £ Pound
@@ -66,6 +69,7 @@ const Currency = () => {
           <button
             className="dropdown-item"
             type="button"
+            style={{ backgroundColor: '#93e399', color: '#000000' }}
             onClick={() => setCurrencyHandler('€')}
           >
            € Euro
@@ -75,6 +79,7 @@ const Currency = () => {
           <button
             className="dropdown-item"
             type="button"
+            style={{ backgroundColor: '#93e399', color: '#000000' }}
             onClick={() => setCurrencyHandler('₹')}
           >
            ₹ Ruppee
