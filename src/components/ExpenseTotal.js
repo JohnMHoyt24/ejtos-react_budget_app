@@ -3,7 +3,7 @@ import { AppContext } from '../context/AppContext';
 
 const ExpenseTotal = () => {
     //expenses are imported from Context
-    const { expenses } = useContext(AppContext);
+    const { currency, expenses } = useContext(AppContext);
 
     const totalExpenses = expenses.reduce((total, item) => {
         //An accumulative total of the costs are calculated
@@ -13,7 +13,7 @@ const ExpenseTotal = () => {
 
     return(
         <div className={`alert alert-primary`}>
-            <span>Spent so far: £{totalExpenses}</span>
+            <span>Spent so far: {currency}{totalExpenses}</span>
         </div>
     );
 };

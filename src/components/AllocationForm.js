@@ -2,14 +2,28 @@ import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 
 const AllocationForm = (props) => {
-    const { dispatch,remaining  } = useContext(AppContext);
+    const { dispatch,remaining,currency  } = useContext(AppContext);
 
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
     const [action, setAction] = useState('');
 
     const submitEvent = () => {
+        const enteredValue = Number(cost);
 
+        //Check that the entered value is a number.
+        if(Number.isNaN(enteredValue)){
+            alert('The value entered must be a number.');
+            return;
+        }
+
+        //Check that the entered value is a whole number.
+        if(!Number.isInteger(enteredValue)){
+            alert('The value entered must be a whole number.');
+            return;
+        }
+
+        //Cost added to the budget can't be greater than the remaining funds.
         if(cost > remaining) {
             alert("The value cannot exceed remaining funds  £"+remaining);
             setCost("");
@@ -58,8 +72,12 @@ const AllocationForm = (props) => {
                         <option defaultValue value="Add" name="Add">Add</option>
                 <option value="Reduce" name="Reduce">Reduce</option>
                   </select>
-                    <span>
-                        £<input
+                        <div style={{display:"flex", alignItems:"center", justifyContent:"center"}}>
+                            <label htmlFor="cost" style={{ marginLeft: '2rem' }}>
+                                {currency}
+                            </label>
+                        </div>
+                        <input
                             required='required'
                             type='number'
                             id='cost'
@@ -70,11 +88,8 @@ const AllocationForm = (props) => {
                         <button className="btn btn-primary" onClick={submitEvent} style={{ marginLeft: '2rem' }}>
                             Save
                         </button>
-                    </span>
                 </div>
-                </div>
-                  
-
+            </div>
         </div>
     );
 };
